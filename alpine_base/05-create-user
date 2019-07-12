@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bash 
+
+getent group $GROUPNAME || groupadd -g $GROUPID $GROUPNAME
+getent passwd $USERNAME || useradd $USERNAME -u $USERID -g $GROUPID -m -d $HOMEDIR -s /bin/bash
+
+
