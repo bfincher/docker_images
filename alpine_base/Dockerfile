@@ -17,6 +17,6 @@ ENV USERID=1000
 ENV GROUPID=1000
 ENV HOMEDIR=/home/nobody
 
-COPY 05-create-user /etc/cont-init.d/
+COPY root/ /
 
 ENTRYPOINT ["/init"]
