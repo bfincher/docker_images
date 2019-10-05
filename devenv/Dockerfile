@@ -1,9 +1,16 @@
 from bfincher/ubuntu-python3:bionic
 
 run apt-get update && \
-    apt-get install -y --no-install-recommends ssh git docker.io sudo python3-virtualenv openjdk-11-jdk-headless && \
+    apt-get install -y --no-install-recommends ssh \
+        git \
+        docker.io \
+        sudo \
+        python3-virtualenv \
+        openjdk-11-jdk-headless \
+        unzip \
+        net-tools \
+        openssh-server && \
     pip3 install virtualenvwrapper && \
-    apt-get install -y --no-install-recommends unzip && \
     curl -o gradle.zip -L "https://services.gradle.org/distributions/gradle-5.6.2-bin.zip" && \
     unzip -d /opt gradle.zip && \
     ln -s /opt/gradle-5.6.2/bin/gradle /usr/bin/gradle && \
