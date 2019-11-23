@@ -9,12 +9,14 @@ run apt-get update && \
         openjdk-11-jdk-headless \
         unzip \
         net-tools \
+        ctags \
         openssh-server && \
     pip3 install virtualenvwrapper && \
     curl -o gradle.zip -L "https://services.gradle.org/distributions/gradle-5.6.2-bin.zip" && \
     unzip -d /opt gradle.zip && \
     ln -s /opt/gradle-5.6.2/bin/gradle /usr/bin/gradle && \
     rm gradle.zip
+run apt-get install -y --no-install-recommends net-tools
     #echo "Installing stuff to build git"
     #export DEBIAN_FRONTEND=noninteractive 
     #ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime
