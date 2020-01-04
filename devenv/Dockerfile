@@ -6,22 +6,19 @@ run apt-get update && \
         docker.io \
         sudo \
         python3-virtualenv \
+        virtualenv \
         openjdk-11-jdk-headless \
         unzip \
         net-tools \
         ctags \
-        openssh-server && \
+        net-tools && \
     pip3 install virtualenvwrapper && \
-    curl -o gradle.zip -L "https://services.gradle.org/distributions/gradle-5.6.2-bin.zip" && \
-    unzip -d /opt gradle.zip && \
-    ln -s /opt/gradle-5.6.2/bin/gradle /usr/bin/gradle && \
-    rm gradle.zip
-run apt-get install -y --no-install-recommends net-tools
-    #echo "Installing stuff to build git"
-    #export DEBIAN_FRONTEND=noninteractive 
-    #ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime
-    #apt-get install -y --no-install-recommends make gcc autoconf zlib1g-dev tcl-dev gettext asciidoc
+    export DEBIAN_FRONTEND=noninteractive && \
+    ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime && \
+    apt-get install -y --no-install-recommends tzdata
 
+    #echo "Installing stuff to build git"
+    #apt-get install -y --no-install-recommends make gcc autoconf zlib1g-dev tcl-dev gettext asciidoc
 
 VOLUME /code 
 
