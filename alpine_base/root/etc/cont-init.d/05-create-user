@@ -2,15 +2,19 @@
 
 getent group $GROUPNAME > /dev/null
 if [ $? -eq 0 ]; then
+    echo "$group GROUPNAME exists.  Changing name to $GROUPNAME"
     groupmod -g $GROUPID $GROUPNAME
 else
+    echo "$group GROUPNAME does not exist.  creating..."
     groupadd -g $GROUPID $GROUPNAME
 fi
 
 getent passwd $USERNAME > /dev/null
 if [ $? -eq 0 ]; then
+    echo "user $USERNAME exists.  Changing name to $USERNAME"
     usermod -u $USERID $USERNAME
 else
+    echo "user $USERNAME does not exist.  creating..."
     useradd $USERNAME -u $USERID -g $GROUPID -m -d $HOMEDIR -s /bin/bash
 fi
 

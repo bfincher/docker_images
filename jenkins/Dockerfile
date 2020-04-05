@@ -1,9 +1,8 @@
-from bfincher/ubuntu-base:bionic
+from bfincher/devenv:ubuntu
 
 run apt-get update && \
-    apt-get --no-install-recommends -y install curl unzip openssh-client && \
+    apt-get --no-install-recommends -y install curl unzip openssh-client psmisc net-tools git && \
     curl -o jenkins.deb -L "https://pkg.jenkins.io/debian-stable/binary/jenkins_2.190.3_all.deb" && \
-    apt-get --no-install-recommends -y install daemon psmisc net-tools default-jre git && \
     dpkg -i jenkins.deb && \
     rm jenkins.deb
 

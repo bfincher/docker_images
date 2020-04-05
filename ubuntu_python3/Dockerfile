@@ -7,6 +7,7 @@ run apt-get install -y python3 python3-setuptools curl && \
     python3 setup.py && \
     rm setup.py && \
     ln -s /usr/bin/python3.6 /usr/bin/python && \
-    ln -s /usr/bin/pip3 /usr/bin/pip
+    ln -s /usr/bin/pip3 /usr/bin/pip && \
+    apt-get clean
 
 ENTRYPOINT ["/init"]

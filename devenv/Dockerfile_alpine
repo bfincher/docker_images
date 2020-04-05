@@ -1,0 +1,17 @@
+from bfincher/alpine-java11:3.11
+
+run apk add --no-cache openssh-client \
+    git \
+    sudo \
+    vim \
+    ctags \
+    openssh && \
+    ssh-keygen -A && \
+    sed -i 's/X11Forwarding no/X11Forwarding yes/g' /etc/ssh/sshd_config && \
+    pip3 install virtualenvwrapper
+
+VOLUME /code 
+
+copy root/ /
+
+EXPOSE 22
