@@ -1,1 +1,1 @@
-docker build -t bfincher/alpine-java11:3.11 .
+docker build -t bfincher/alpine-java11:3.12 .

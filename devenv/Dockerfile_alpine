@@ -1,13 +1,16 @@
-from bfincher/alpine-java11:3.11
+from bfincher/alpine-java11:3.12
 
 run apk add --no-cache openssh-client \
     git \
     sudo \
     vim \
     ctags \
+    python3 \
+    py3-pip \
     openssh && \
     ssh-keygen -A && \
     sed -i 's/X11Forwarding no/X11Forwarding yes/g' /etc/ssh/sshd_config && \
+    ln -s /usr/bin/python3.8 /usr/bin/python && \
     pip3 install virtualenvwrapper
 
 VOLUME /code 

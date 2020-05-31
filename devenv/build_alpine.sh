@@ -1,1 +1,1 @@
-docker build -t bfincher/devenv:alpine . -f Dockerfile_alpine
+docker build -t bfincher/devenv:alpine_3.12 . -f Dockerfile_alpine
