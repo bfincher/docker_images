@@ -15,6 +15,9 @@ run apt-get update && \
         unzip \
         net-tools \
         ctags \
+        gcc \
+        libheif-examples \
+        ipython3 \
         openssh-server \
         openssh-client \
         net-tools && \
@@ -31,6 +34,8 @@ run apt-get update && \
     pip3 install virtualenvwrapper
 
 VOLUME /code 
+
+VOLUME /other
 
 EXPOSE 22
 
