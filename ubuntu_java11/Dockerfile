@@ -1,4 +1,4 @@
-from bfincher/ubuntu-base:bionic
+from bfincher/ubuntu-base:focal
 
 env PYTHONBUFFERED 1
 

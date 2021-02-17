@@ -1,1 +1,1 @@
-docker build -t bfincher/ubuntu-base:bionic --pull .
+docker build -t bfincher/ubuntu-base:focal --pull .
