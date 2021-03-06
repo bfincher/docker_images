@@ -1,4 +1,4 @@
-from bfincher/alpine-java11:3.12
+from bfincher/alpine-java11:3.13
 
 run apk add --no-cache openssh-client \
     git \

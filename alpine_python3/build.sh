@@ -1,1 +1,1 @@
-docker build -t bfincher/alpine-python3:3.12 .
+docker build -t bfincher/alpine-python3:3.13 .
