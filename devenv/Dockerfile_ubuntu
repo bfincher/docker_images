@@ -1,4 +1,4 @@
-from bfincher/ubuntu-java11:bionic
+from bfincher/ubuntu-java11:focal
 
 run apt-get update && \
     apt-get install -y --no-install-recommends ssh \
@@ -20,7 +20,8 @@ run apt-get update && \
         ipython3 \
         openssh-server \
         openssh-client \
-        net-tools && \
+        net-tools  \
+        make autoconf gcc zlib1g-dev gettext && \
     apt-get clean && \
     ssh-keygen -A && \
     export DEBIAN_FRONTEND=noninteractive && \
