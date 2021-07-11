@@ -1,0 +1,14 @@
+#!/bin/bash
+
+FILES="gshadow shadow passwd group"
+
+for f in $FILES
+do
+    echo $f
+    sed -i 's/abc/bfincher/g' /etc/$f
+done
+
+sed -i 's$/bin/false$/bin/bash$g' /etc/passwd
+sed -i 's$/config$/home/bfincher$g' /etc/passwd
+
+
