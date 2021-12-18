@@ -1,4 +1,4 @@
-from alpine:3.13
+from alpine:3.15
 
 ARG OVERLAY_VERSION="v2.2.0.1"
 ARG OVERLAY_ARCH="amd64"

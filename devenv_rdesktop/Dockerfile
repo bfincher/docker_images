@@ -6,7 +6,8 @@ run apt-get update && \
         sudo \
         python3-virtualenv \
         virtualenv \
-        openjdk-11-jdk-headless \
+        openjdk-11-jdk \
+        openjdk-11-source \
         libswt-gtk-4-jni \
         python3 \
         python3-setuptools \
@@ -22,7 +23,7 @@ run apt-get update && \
         make autoconf gcc zlib1g-dev gettext \
         iputils-ping \
         vim && \
-    apt-get install kmod msr-tools && \
+    #apt-get install kmod msr-tools && \
     apt-get clean && \
     ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime && \
     apt-get install -y --no-install-recommends tzdata && \
