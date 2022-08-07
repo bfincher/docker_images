@@ -1,15 +1,16 @@
-from bfincher/devenv:ubuntu
+from jenkins/jenkins:lts-jdk11
 
+USER root
 run apt-get update && \
-    apt-get --no-install-recommends -y install curl unzip openssh-client psmisc net-tools git daemon && \
-    curl -o jenkins.deb -L "https://pkg.jenkins.io/debian-stable/binary/jenkins_2.289.1_all.deb" && \
-    dpkg -i jenkins.deb && \
-    rm jenkins.deb
+    apt-get --no-install-recommends -y install unzip git wget openjdk-11-jdk-headless openjdk-17-jdk-headless && \
+    sed -i 's/1000/1014/g' /etc/passwd && \
+    sed -i 's/1000/1014/g' /etc/group
+
+USER jenkins
 
 volume /var/jenkins_home
 volume /var/lib/jenkins
 
-copy root/ /
-
 expose 8080
+expose 8989
 expose 50000

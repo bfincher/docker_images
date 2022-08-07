@@ -1,4 +1,0 @@
-#!/usr/bin/with-contenv bash 
-
-usermod -G docker -a $USERNAME
-echo "$USERNAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers

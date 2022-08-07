@@ -1,4 +1,4 @@
-from  ghcr.io/linuxserver/rdesktop
+from  ghcr.io/linuxserver/rdesktop:ubuntu-kde
 
 run apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -6,8 +6,8 @@ run apt-get update && \
         sudo \
         python3-virtualenv \
         virtualenv \
-        openjdk-11-jdk \
-        openjdk-11-source \
+        openjdk-17-jdk \
+        openjdk-17-source \
         libswt-gtk-4-jni \
         python3 \
         python3-setuptools \
@@ -15,7 +15,6 @@ run apt-get update && \
         curl \
         unzip \
         net-tools \
-        ctags \
         gcc \
         libheif-examples \
         ipython3 \
@@ -36,6 +35,15 @@ run apt-get update && \
     mkdir /code && \
     mkdir /other && \
     mkdir -p /home/bfincher
+
+# jenkins
+RUN apt-get install -y --no-install-recommends \
+        openssh-client \
+        psmisc \
+        daemon && \
+    curl -o jenkins.deb -L "https://pkg.jenkins.io/debian-stable/binary/jenkins_2.289.1_all.deb" && \
+    dpkg -i jenkins.deb && \
+    rm jenkins.deb
 
 ADD 11-modifyuser /etc/cont-init.d
 
