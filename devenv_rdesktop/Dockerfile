@@ -30,25 +30,30 @@ run apt-get update && \
     python3 setup.py && \
     rm setup.py && \
     ln -s /usr/bin/python3.6 /usr/bin/python && \
-    ln -s /usr/bin/pip3 /usr/bin/pip && \
+#    ln -s /usr/bin/pip3 /usr/bin/pip && \
     pip3 install virtualenvwrapper && \
     mkdir /code && \
     mkdir /other && \
-    mkdir -p /home/bfincher
+    mkdir -p /home/bfincher 
 
-# jenkins
-RUN apt-get install -y --no-install-recommends \
-        openssh-client \
-        psmisc \
-        daemon && \
-    curl -o jenkins.deb -L "https://pkg.jenkins.io/debian-stable/binary/jenkins_2.289.1_all.deb" && \
-    dpkg -i jenkins.deb && \
-    rm jenkins.deb
+#ARG S6_OVERLAY_VERSION="3.1.2.1"
 
-ADD 11-modifyuser /etc/cont-init.d
+#run  curl -o /tmp/s6-overlay-noarch.tar.gz -L \
+#     "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz" && \
+#     tar -Jxpf /tmp/s6-overlay-noarch.tar.gz -C / && \
+#     rm /tmp/s6-overlay-noarch.tar.gz && \
+#     curl -o /tmp/s6-overlay-x86-64.tar.gz -L \
+#     "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz" && \
+#     tar -Jxpf /tmp/s6-overlay-x86-64.tar.gz -C / && \
+#     rm /tmp/s6-overlay-x86-64.tar.gz && \
+#     mkdir /etc/cont-init.d
+     
+#run groupadd -g 1000 bfincher && \
+#    useradd bfincher -u 1000 -g 1000 -m -d /home/bfincher -s /bin/bash && \
+#    echo 'bfincher:abc' | chpasswd
 
+#ADD 11-modifyuser /etc/cont-init.d
+ADD root /
 VOLUME /code 
-
-VOLUME /other
 
 VOLUME /home/bfincher
