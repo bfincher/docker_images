@@ -1,0 +1,11 @@
+from gradle:7.5-jdk11-focal
+
+USER root
+
+run rm /etc/localtime && \
+    ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime && \
+    mkdir /usr/share/jenkins
+
+user gradle
+
+add agent.jar /usr/share/jenkins/agent.jar
