@@ -1,0 +1,1 @@
+docker build -t bfincher/jenkins-docker-python:3.10 -f Dockerfile-python-3.10 .

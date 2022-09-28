@@ -1,0 +1,16 @@
+from bfincher/jenkins-docker-java:7.5.1-jdk17
+
+user root
+
+run curl -o /opt/python.tgz https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tgz && \
+    cd /opt && \
+    tar -zxf python.tgz && \
+    rm python.tgz && \
+    apt update && \
+    apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev pkg-config make
+
+run cd /opt/Python-3.10.5 && \
+    ./configure --enable-optimizations --enable-shared && \
+    make -j 4 build_all && \
+    make altinstall && \
+    ldconfig /opt/Python-3.10.5/
