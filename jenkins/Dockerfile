@@ -16,6 +16,7 @@ run  newgrp docker && newgrp jenkins # necessary for jenkins to actually be a me
 
 volume /var/jenkins_home
 volume /var/lib/jenkins
+volume /cache
 
 expose 8080
 expose 8989

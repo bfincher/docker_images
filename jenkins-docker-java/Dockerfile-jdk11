@@ -1,10 +1,12 @@
 from gradle:7.5-jdk11-focal
 
 USER root
+volume /cache
 
 run rm /etc/localtime && \
     ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime && \
-    mkdir /usr/share/jenkins
+    mkdir /usr/share/jenkins && \
+    chown gradle:gradle /cache
 
 user gradle
 
