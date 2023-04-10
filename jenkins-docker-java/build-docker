@@ -1,0 +1,1 @@
+docker build -t bfincher/jenkins-docker -f Dockerfile-docker .
