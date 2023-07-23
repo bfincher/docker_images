@@ -1,4 +1,5 @@
-from jenkins/jenkins:lts-jdk11
+#from jenkins/jenkins:lts-jdk11
+from jenkins/jenkins:2.401.1-lts-jdk11
 
 USER root
 #run apt-get update && \

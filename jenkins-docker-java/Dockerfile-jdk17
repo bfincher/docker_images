@@ -6,7 +6,9 @@ volume /cache
 run rm /etc/localtime && \
     ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime && \
     mkdir /usr/share/jenkins && \
-    chown gradle:gradle /cache
+    chown gradle:gradle /cache && \
+    apt-get update && \
+    apt-get install -y iputils-ping
 
 user gradle
 

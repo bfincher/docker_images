@@ -1,4 +1,4 @@
-from bfincher/alpine-base:3.17
+from bfincher/alpine-base:3.18
 
 env PYTHONBUFFERED 1
 
